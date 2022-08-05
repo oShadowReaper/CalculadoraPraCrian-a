@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="jogo.css">
+    <link rel="shortcut icon" href="./pngwing.com.png" type="image/x-icon">
+    <title>Calculadora Online</title>
+</head>
+    
+<body>
+    <div class="header">
+    <header>
+        <h1>Calculadora segunda fase</h1>
+    </header>
+    </div>
+    <div class="container">
+        <div class="box">
+            <div class="meiolo">
+        <label>Quanto é </label>
+        <label  id="numeroA"></label>
+        <label> - </label>
+        <label id="numeroB"></label>
+            </div>
+        <input type="number" id="resultado" placeholder="Escreva o resultado">
+
+        </div>
+    </div>
+    <script>
+        document.getElementById('numeroA').innerHTML = Math.round(Math.random()*9)
+        document.getElementById('numeroB').innerHTML = Math.round(Math.random()*(parseInt(document.getElementById('numeroA').innerHTML)-1))
+        let a = parseInt(document.getElementById('numeroA').innerHTML)
+        let b = parseInt(document.getElementById('numeroB').innerHTML)
+
+        document.onkeyup = function (evento){
+            let tecla = Number(evento.key)
+            document.getElementById('resultado').value = tecla 
+            let resultado = parseInt(document.getElementById('resultado').value)
+
+    if((a - b) == resultado){
+        window.location.href = './Congratulacoes.html'
+    } else {
+        window.location.href = './telaDeErro.html'
+        }
+    }
+    </script>
+</body>
+</html>
